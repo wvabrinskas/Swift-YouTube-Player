@@ -195,7 +195,7 @@ open class YouTubePlayerView: UIView, UIWebViewDelegate {
     }
     
     open func setVolume(_ volume: Int) {
-        evaluatePlayerCommand("setVolume(\(volume))")
+        evaluatePlayerCommand("setVolume(volume:\(volume))")
     }
     
     open func getDuration() -> String? {
