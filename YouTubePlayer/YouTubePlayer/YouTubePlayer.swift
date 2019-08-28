@@ -195,7 +195,7 @@ open class YouTubePlayerView: UIView, UIWebViewDelegate {
     }
     
     open func setVolume(_ volume: Int) {
-        evaluatePlayerCommand("setVolume(volume:\(volume))")
+        evaluatePlayerCommand("setVolume(\(volume))")
     }
     
     open func getDuration() -> String? {
@@ -216,7 +216,7 @@ open class YouTubePlayerView: UIView, UIWebViewDelegate {
         evaluatePlayerCommand("nextVideo()")
     }
     
-    @discardableResult fileprivate func evaluatePlayerCommand(_ command: String) -> String? {
+    @discardableResult public func evaluatePlayerCommand(_ command: String) -> String? {
         let fullCommand = "player." + command + ";"
         return webView.stringByEvaluatingJavaScript(from: fullCommand)
     }
