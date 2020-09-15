@@ -201,9 +201,6 @@ open class YouTubePlayerView: UIView, WKNavigationDelegate {
     open func setVolume(_ volume: Int) {
         evaluatePlayerCommand("setVolume(\(volume))")
     }
-    
-    open func getDuration() -> String? {
-        return evaluatePlayerCommand("getDuration()")
 
     open func getDuration(completion: ((Double?) -> Void)? = nil) {
         evaluatePlayerCommand("getDuration()") { (result) in
@@ -227,7 +224,7 @@ open class YouTubePlayerView: UIView, WKNavigationDelegate {
         evaluatePlayerCommand("nextVideo()")
     }
 
-    fileprivate func evaluatePlayerCommand(_ command: String, completion: ((Any?) -> Void)? = nil) {
+    open func evaluatePlayerCommand(_ command: String, completion: ((Any?) -> Void)? = nil) {
         let fullCommand = "player." + command + ";"
         webView.evaluateJavaScript(fullCommand) { (result, error) in
             if let error = error, (error as NSError).code != 5 { // NOTE: ignore :Void return
