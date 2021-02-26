@@ -16,6 +16,7 @@ public enum YouTubePlayerState: String {
     case Paused = "2"
     case Buffering = "3"
     case Queued = "4"
+    case Stopped = "5"
 }
 
 public enum YouTubePlayerEvents: String {
